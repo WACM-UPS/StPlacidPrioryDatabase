@@ -39,6 +39,22 @@
         Which meals do you want?: <br>
         <input type='checkbox' name='meals' value='lunch'>
         <input type='checkbox' name='meals' value='dinner>'>
+        
+        <?php
+        //this is psedocode for what we want
+        if (!lunch and !dinner){
+        $meals = 0;
+        }
+        else if(lunch and !dinner){
+        $meals = 1;
+        }
+        else if(!lunch and dinner){
+        $meals = 2;
+        }
+        else {
+        $meals = 3;
+        }
+        ?>
 
         <input type='submit'>
       </form>
