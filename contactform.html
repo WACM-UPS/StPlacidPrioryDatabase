@@ -1,43 +1,51 @@
 <!DOCTYPE HTML>
 <html>
   <head>
+    <link rel="stylesheet" type="text/css" href="dates.css">
     <title> Contact info and Program Info Form </title>
     <!--link css-->
   </head>
   <body>
     <!--header here-->
     <section id='Header'>
-    
+
     </section>
     <section id='forms'>
       <!--form to contact info table-->
       <form id='contact info form'>
-        First Name: <br>
-        <input type='text' name='firstname'><br>
-        Last Name: <br>
-        <input type='text' name='lastname'><br>
+        First Name:
+        <input type='text' name='firstname' value="First Name">
+        <br><br>
+        Last Name:
+        <input type='text' name='lastname' value="Last Name">
+        <br><br>
         Daytime Phone Number or Cellphone Number:
-        <input  type='tel' name='dayphone' required><br>
+        <input type='tel' name='dayphone' value="e.g. (303) 867 - 5309" required>
+        <br><br>
         Home Phone Number:
-        <input type='tel' name='homephone'><br>
+        <input type='tel' name='homephone' value="e.g. (303) 867 - 5309">
+        <br><br>
         Email:
-        <input type='email' name='email'><br>
-        Address:
-        <input type='text' name='street1'><br>
-        <input type='text' name='street2'><br>
-        <input type='text' name='city'>
-        <input type='text' name='state'>
-        <input type='text' name='country'>
-        <input type='text' name='zip'><br>
+        <input type='email' name='email' value="e.g. myname@gmail.com">
+        <br><br>
+        Address: <br>
+        <input type='text' name='street' value="Street 1"><br>
+        <input type='text' name='apartment' value="Apartment"><br>
+        <input type='text' name='city' value="City"><br>
+        <input type='text' name='state' value="State"><br>
+        <input type='text' name='zip' value="Zip Code"><br>
+        <input type='text' name='country' value="Country"><br>
+
+        <br>
         <input type='submit'>
       </form>
       <!--form to program info table-->
       <form id='program info form'>
-        
+
       </form>
       <!--form to meal info table-->
       <form id='meal info form'>
-        
+
       </form>
     </section>
   </body>
