@@ -3,12 +3,12 @@
 .nullvalue NULL
 PRAGMA foreign_keys = ON;
 
-create table ContactInfo (
+create table ContactInfo(
   personID INTEGER PRIMARY KEY,
   fName TEXT NOT NULL,
   lName TEXT NOT NULL,
-  cellNum INTEGER NOT NULL CHECK(length(phone)<=10),
-  homeNum INTEGER NOT NULL CHECK(length(phone)<=10)
+  cellNum INTEGER NOT NULL CHECK(length(cellNum) <= 10),
+  homeNum INTEGER NOT NULL CHECK(length(homeNum) <= 10),
   email TEXT NOT NULL UNIQUE,
   street TEXT NOT NULL,
   city TEXT NOT NULL,
@@ -36,7 +36,7 @@ create table MeetingRoomInfo(
   dateReserve TEXT NOT NULL,
   startTime TEXT NOT NULL,
   endTime TEXT NOT NULL,
-  equip INTEGER NOT NULL CHECK(eqip <= 1),
+  equip INTEGER NOT NULL CHECK(equip <= 1),
 
   PRIMARY KEY(programID, meetRoomID)
   FOREIGN KEY(programID) REFERENCES RegistrationInfo(programID)
@@ -54,12 +54,12 @@ create table MeetingRooms(
 );
 
 create table EquipmentReserve(
-  meetingRoomID INTEGER NOT NULL UNIQUE CHECK(meetRoomID <= 3),
+  meetRoomID INTEGER NOT NULL UNIQUE CHECK(meetRoomID <= 3),
   programID INTEGER NOT NULL UNIQUE,
   spiritDirect INTEGER NOT NULL CHECK(spiritDirect <= 1),
   mediaEquip INTEGER NOT NULL CHECK(mediaEquip <= 1),
 
-  PRIMARY KEY(meetingRoomID, programID)
+  PRIMARY KEY(meetRoomID, programID)
   FOREIGN KEY(programID) REFERENCES RegistrationInfo(programID)
     ON UPDATE CASCADE
     ON DELETE CASCADE
