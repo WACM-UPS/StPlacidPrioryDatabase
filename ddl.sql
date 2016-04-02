@@ -13,7 +13,7 @@ create table ContactInfo(
   street TEXT NOT NULL,
   city TEXT NOT NULL,
   state TEXT NOT NULL CHECK(length(state) <= 2),
-  zip INTEGER NOT NULL CHECK(zip < 100000),
+  zip INTEGER NOT NULL CHECK(zip < 100000)
 );
 
 create table RegistrationInfo(
@@ -72,7 +72,7 @@ create table EquipmentReserve(
 create table MealInfo(
   programID INTEGER NOT NULL UNIQUE,
   singleDate TEXT NOT NULL,
-  mealNum INTEGER NOT NULL CHECK(mealNum <= 3)
+  mealNum INTEGER NOT NULL CHECK(mealNum <= 3),
 
   PRIMARY KEY(programID, singleDate)
   FOREIGN KEY(programID) REFERENCES RegistrationInfo(programID)
@@ -89,7 +89,7 @@ create table RoomReserve(
   FOREIGN KEY(programID) REFERENCES RegistrationInfo(programID)
     ON UPDATE CASCADE
     ON DELETE CASCADE
-  FOREIGN KEY(bedroomID) REFERENCE BedroomInfo(bedroomID)
+  FOREIGN KEY(bedroomID) REFERENCES BedroomInfo(bedroomID)
     ON UPDATE CASCADE
     ON DELETE CASCADE
 );
