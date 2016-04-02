@@ -3,118 +3,99 @@
 .nullvalue NULL
 PRAGMA foreign_keys = ON;
 
-create table User(
-	dLicense TEXT PRIMARY KEY,
-	fname TEXT NOT NULL,
-	lname TEXT NOT NULL,
-	phone TEXT NOT NULL CHECK(length(phone) <= 15),
-	email TEXT NOT NULL UNIQUE,
-	street TEXT NOT NULL,
-	city TEXT NOT NULL,
-	state TEXT NOT NULL CHECK(length(state) <= 2),
-	zip INTEGER NOT NULL CHECK(zip < 100000),
-	username TEXT NOT NULL UNIQUE,
-	FOREIGN KEY(username) REFERENCES Login(username)
-		ON UPDATE CASCADE
-		ON DELETE CASCADE
+create table ContactInfo(
+  personID INTEGER PRIMARY KEY,
+  fName TEXT NOT NULL,
+  lName TEXT NOT NULL,
+  cellNum INTEGER NOT NULL CHECK(length(cellNum) <= 10),
+  homeNum INTEGER NOT NULL CHECK(length(homeNum) <= 10),
+  email TEXT NOT NULL UNIQUE,
+  street TEXT NOT NULL,
+  city TEXT NOT NULL,
+  state TEXT NOT NULL CHECK(length(state) <= 2),
+  zip INTEGER NOT NULL CHECK(zip < 100000)
 );
 
-create table Vehicle(
-	vin INTEGER PRIMARY KEY,
-	pricePerHour REAL NOT NULL,
-	make TEXT NOT NULL,
-	model TEXT NOT NULL,
-	year INTEGER NOT NULL CHECK(year > 1900),
-	transmission TEXT NOT NULL CHECK(transmission LIKE 'Manual' or transmission LIKE 'Automatic'),
-	seats INTEGER NOT NULL
+create table RegistrationInfo(
+  programID INTEGER PRIMARY KEY,
+  personID INTEGER NOT NULL UNIQUE,
+  numPeople INTEGER NOT NULL CHECK(length(numPeople) <= 50),
+  startDay TEXT NOT NULL,
+  startTime TEXT NOT NULL,
+  endDay TEXT NOT NULL,
+  endTime TEXT NOT NULL,
+
+  FOREIGN KEY(personID) REFERENCES ContactInfo(personID)
+    ON UPDATE CASCADE
+    ON DELETE CASCADE
 );
 
-create table Reservation(
-	confirmNum INTEGER,
-	dLicense TEXT,
-	startTime TEXT NOT NULL,
-	endTime TEXT NOT NULL,
-	location TEXT NOT NULL,
-	priceTotal REAL NOT NULL,
-	vin TEXT NOT NULL,
-	PRIMARY KEY(confirmNum, dLicense)
-	FOREIGN KEY(vin) REFERENCES Vehicle(vin)
-		ON UPDATE CASCADE
-		ON DELETE CASCADE
+create table MeetingRoomInfo(
+  programID INTEGER NOT NULL UNIQUE,
+  meetRoomID INTEGER NOT NULL CHECK(meetRoomID <= 3),
+  dateReserve TEXT NOT NULL,
+  startTime TEXT NOT NULL,
+  endTime TEXT NOT NULL,
+  equip INTEGER NOT NULL CHECK(equip <= 1),
+
+  PRIMARY KEY(programID, meetRoomID)
+  FOREIGN KEY(programID) REFERENCES RegistrationInfo(programID)
+    ON UPDATE CASCADE
+    ON DELETE CASCADE
+  FOREIGN KEY(meetRoomID) REFERENCES MeetingRooms(meetRoomID)
+    ON UPDATE CASCADE
+    ON DELETE CASCADE
+
 );
 
-create table Login(
-	username TEXT PRIMARY KEY,
-	password TEXT NOT NULL
+create table MeetingRooms(
+  meetRoomID INTEGER PRIMARY KEY CHECK(meetRoomID <= 3),
+  meetRoomName TEXT NOT NULL UNIQUE
 );
 
-create table Admin(
-	adminID INTEGER PRIMARY KEY,
-	fname TEXT NOT NULL,
-	lname TEXT NOT NULL,
-	username TEXT NOT NULL UNIQUE,
-	FOREIGN KEY(username) REFERENCES Login(username)
-		ON UPDATE CASCADE
-		ON DELETE CASCADE
+create table EquipmentReserve(
+  meetRoomID INTEGER NOT NULL UNIQUE CHECK(meetRoomID <= 3),
+  programID INTEGER NOT NULL UNIQUE,
+  spiritDirect INTEGER NOT NULL CHECK(spiritDirect <= 1),
+  mediaEquip INTEGER NOT NULL CHECK(mediaEquip <= 1),
+
+  PRIMARY KEY(meetRoomID, programID)
+  FOREIGN KEY(programID) REFERENCES RegistrationInfo(programID)
+    ON UPDATE CASCADE
+    ON DELETE CASCADE
+  FOREIGN KEY(meetRoomID) REFERENCES MeetingRooms(meetRoomID)
+    ON UPDATE CASCADE
+    ON DELETE CASCADE
 );
 
-create table EditsUser(
-	adminID INTEGER,
-	driversLicense TEXT,
-	timeEdited TEXT,
-	PRIMARY KEY(adminID, driversLicense, timeEdited)
-	FOREIGN KEY(adminID) REFERENCES Admin(adminID)
-		ON UPDATE CASCADE
-		ON DELETE CASCADE
-	FOREIGN KEY(driversLicense) REFERENCES User(dLicense)
-		ON UPDATE CASCADE
-		ON DELETE CASCADE
+
+create table MealInfo(
+  programID INTEGER NOT NULL UNIQUE,
+  singleDate TEXT NOT NULL,
+  mealNum INTEGER NOT NULL CHECK(mealNum <= 3),
+
+  PRIMARY KEY(programID, singleDate)
+  FOREIGN KEY(programID) REFERENCES RegistrationInfo(programID)
+    ON UPDATE CASCADE
+    ON DELETE CASCADE
 );
 
-create table EditsReservation(
-	adminID INTEGER,
-	vin TEXT,
-	confirmNum INTEGER,
-	timeEdited TEXT,
-	PRIMARY KEY(adminID, vin, confirmNum, timeEdited)
-	FOREIGN KEY(adminID) REFERENCES Admin(adminID)
-		ON UPDATE CASCADE
-		ON DELETE CASCADE
-	FOREIGN KEY(vin) REFERENCES Vehicle(vin)
-		ON UPDATE CASCADE
-		ON DELETE CASCADE
-	FOREIGN KEY(confirmNum) REFERENCES Reservation(confirmNum)
-		ON UPDATE CASCADE
-		ON DELETE CASCADE
+create table RoomReserve(
+  programID INTEGER NOT NULL UNIQUE,
+  bedroomID INTEGER NOT NULL UNIQUE,
+  numPeople INTEGER NOT NULL CHECK(numPeople <= 2),
+
+  PRIMARY KEY(programID, bedroomID)
+  FOREIGN KEY(programID) REFERENCES RegistrationInfo(programID)
+    ON UPDATE CASCADE
+    ON DELETE CASCADE
+  FOREIGN KEY(bedroomID) REFERENCES BedroomInfo(bedroomID)
+    ON UPDATE CASCADE
+    ON DELETE CASCADE
 );
 
-create table EditsVehicle(
-	adminID INTEGER,
-	vin TEXT,
-	timeEdited TEXT,
-	PRIMARY KEY(adminID, vin, timeEdited)
-	FOREIGN KEY(adminID) REFERENCES Admin(adminID)
-		ON UPDATE CASCADE
-		ON DELETE CASCADE
-	FOREIGN KEY(vin) REFERENCES Vehicle(vin)
-		ON UPDATE CASCADE
-		ON DELETE CASCADE
-);
-
-create table UserCreditCard(
-	number INTEGER PRIMARY KEY,
-	expDate TEXT NOT NULL,
-	CVC INTEGER NOT NULL
-);
-
-create table UserBalance(
-	dLicense TEXT PRIMARY KEY,
-	number INTEGER NOT NULL,
-	balance REAL NOT NULL,
-	FOREIGN KEY(number) REFERENCES UserCreditCard(number)
-		ON UPDATE CASCADE
-		ON DELETE CASCADE
-	FOREIGN KEY(dLicense) REFERENCES User(dLicense)
-		ON UPDATE CASCADE
-		ON DELETE CASCADE
+create table BedroomInfo(
+  bedroomID INTEGER PRIMARY KEY,
+  roomName TEXT NOT NULL UNIQUE,
+  maxPeople INTEGER NOT NULL CHECK(maxPeople <=2)
 );
