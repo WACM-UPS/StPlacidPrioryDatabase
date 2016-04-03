@@ -49,17 +49,17 @@
 
       <form id="if_group">
       Charges <br><br>
-      <input type="checkbox" name="charges" value="outside_caterers"> Bring your own food! Outside caterers may be used. ($45 per person per night) <br>
-      <input type="checkbox" name="charges" value="room2"> Center provides breakfast, and prepares lunch and dinner (65$ per person per night)<br>
-      <input type="submit" value="use these rooms!">
+      <input type="radio" name="charges" id="bring_own_food" value="bring_own_food"> <label for='bring_own_food'></label> Bring your own food! Outside caterers may be used. ($45 per person per night) <br>
+      <input type="radio" name="charges" id="food_provided" value="food_provided"> Center provides breakfast, and prepares lunch and dinner (65$ per person per night)<br>
+      <input type="submit" value="use these services!">
     </form>
 
     <br><br><br>
 
     <form id="if_group">
       St Placid Priory <br><br>
-      <input type="checkbox" name="multi_rooms" value="room1"> Multipurpose Room 1 (130$ per day)<br>
-      <input type="checkbox" name="multi_rooms" value="room2"> Multipurpose Room 2 (130$ per day)<br>
+      <input type="checkbox" name="multi_rooms" id="room1" value="room1"><label for='room1'></label> Multipurpose Room 1 (130$ per day)<br>
+      <input type="checkbox" name="multi_rooms" id="room2" value="room2"><label for='room2'></label> Multipurpose Room 2 (130$ per day)<br>
       <input type="submit" value="use these rooms!">
     </form>
 
@@ -67,13 +67,13 @@
 
     <form id="if_group">
     	The Priory Spirituality Center <br><br>
-    	<input type="checkbox" name="sprit_center" value="sophia_rm"> Sophia Room ($65 per day or $20 per evening) [up to 20 people]<br>
-    	<input type="checkbox" name="spirit_center" value="guadalupe_rm"> Guadalupe Room ($20 per day or $10 per evening) [coffee table, 6-8 padded chairs]<br>
-    	<input type="checkbox" name="spirit_center" value="kitchen"> Kitchen ($15, limited use) [1 round table, 4-8 chairs]<br>
-    	<input type="checkbox" name="spirit_center" value="bedrooms"> Retreat Bedrooms ($45~65 per night) [10 rooms, with up to 19 guests] <br>
-    	<input type="checkbox" name="spirit_center" value="projector"> Overhead Projector ($10 per day) [Sophia only]<br>
-    	<input type="checkbox" name="spirit_center" value="tv"> TV, VCR, DVD ($10 per day) [Sophia or Guadalupe only]<br>
-    	<input type="checkbox" name="spirit_center" value="tv"> Garbage collection ($20 per day for catered ) [Sophia or Guadalupe only]<br>
+    	<input type="checkbox" name="sprit_center" id="sophia_rm" value="sophia_rm"><label for="sophia_rm"></label>Sophia Room ($65 per day or $20 per evening) [up to 20 people]<br>
+    	<input type="checkbox" name="spirit_center" id="guadalupe_rm" value="guadalupe_rm"><label for="guadalupe_rm"></label> Guadalupe Room ($20 per day or $10 per evening) [coffee table, 6-8 padded chairs]<br>
+    	<input type="checkbox" name="spirit_center" id="kitchen" value="kitchen"><label for="kitchen"></label> Kitchen ($15, limited use) [1 round table, 4-8 chairs]<br>
+    	<input type="checkbox" name="spirit_center" id="bedrooms" value="bedrooms"><label for="bedrooms"></label> Retreat Bedrooms ($45~65 per night) [10 rooms, with up to 19 guests] <br>
+    	<input type="checkbox" name="spirit_center" id="projector" value="projector"><label for="projector"></label> Overhead Projector ($10 per day) [Sophia only]<br>
+    	<input type="checkbox" name="spirit_center" id="tv" value="tv"><label for="tv"></label> TV, VCR, DVD ($10 per day) [Sophia or Guadalupe only]<br>
+    	<input type="checkbox" name="spirit_center" id="garbage_collect" value="garbage_collect"><label for="garbage_collect"></label> Garbage collection ($20 per day for catered ) [Sophia or Guadalupe only]<br>
     	<input type="submit" value="use these services!">
     </form>
 
@@ -81,11 +81,11 @@
 
     <form id="if_group">
     	Equipment Needed <br><br>
-    	<input type="checkbox" name="equipment_needed" value="easel"> Flip chart easel (bring paper and markers) <br>
-    	<input type="checkbox" name="equipment_needed" value="chalkboard"> Chalkboard (Multipurpose Room) <br>
-    	<input type="checkbox" name="equipment_needed" value="mic"> Microphone (Full Multipurpose Room only) <br>
-    	<input type="checkbox" name="equipment_needed" value="podium"> Podium <br>
-    	<input type="checkbox" name="equipment_needed" value="exten_cord"> Extension cord <br>
+    	<input type="checkbox" name="equipment_needed" id="easel" value="easel"><label for='easel'></label> Flip chart easel (bring paper and markers) <br>
+    	<input type="checkbox" name="equipment_needed" id="chalkboard" value="chalkboard"><label for='chalkboard'></label> Chalkboard (Multipurpose Room) <br>
+    	<input type="checkbox" name="equipment_needed" id="mic" value="mic"><label for='mic'></label> Microphone (Full Multipurpose Room only) <br>
+    	<input type="checkbox" name="equipment_needed" id="podium" value="podium"><label for='podium'></label> Podium <br>
+    	<input type="checkbox" name="equipment_needed" id="exten_cord" value="exten_cord"><label for='exten_cord'></label> Extension cord <br>
     	<input type="submit" value="use this equipment!">
     </form>
 
