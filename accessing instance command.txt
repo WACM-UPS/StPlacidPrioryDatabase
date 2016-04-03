@@ -1,1 +1,1 @@
--i path/to/priory.pem ec2-52-24-101-99.us-west-2.compute.amazonaws.com
+ssh -i path/to/priory.pem ec2-52-24-101-99.us-west-2.compute.amazonaws.com
