@@ -15,7 +15,7 @@
 
   <section id='forms'>
     <!--form to contact info table-->
-    <form id='contact info form' action='contactinput.php' method='post'>
+    <form id='contact info form' action='contactinputs.php' method='post'>
       * First Name:
       <input type='text' name='fname' value="First Name" required>
       <br><br>
