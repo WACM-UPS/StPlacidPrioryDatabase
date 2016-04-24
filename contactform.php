@@ -33,7 +33,7 @@
       <br><br>
       * Address: <br>
       <input type='text' name='street' placeholder="Street" required><br>
-      <input type='text' name='apartment' placeholder="Apartment" required><br>
+      <input type='text' name='apartment' placeholder="Apartment"><br>
       <input type='text' name='city' placeholder="City" required>
       <select name='state'>
         <option value="Alabama">Alabama</option>
