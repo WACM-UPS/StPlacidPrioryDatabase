@@ -17,24 +17,24 @@
     <!--form to contact info table-->
     <form id='contact info form' action='contactinput.php' method='post'>
       * First Name:
-      <input type='text' name='fname' value="First Name" required>
+      <input type='text' name='fname' placeholder="First Name" required>
       <br><br>
       * Last Name:
-      <input type='text' name='lname' value="Last Name" required>
+      <input type='text' name='lname' placeholder="Last Name" required>
       <br><br>
       * Daytime Phone Number or Cellphone Number:
-      <input type='tel' name='cellNum' value="e.g. (303) 867 - 5309" required>
+      <input type='tel' name='cellNum' placeholder="e.g. (303) 867 - 5309" required>
       <br><br>
       Home Phone Number:
-      <input type='tel' name='homeNum' value="e.g. (303) 867 - 5309">
+      <input type='tel' name='homeNum' placeholder="e.g. (303) 867 - 5309">
       <br><br>
       * Email:
-      <input type='email' name='email' value="e.g. myname@gmail.com" required>
+      <input type='email' name='email' placeholder="e.g. myname@gmail.com" required>
       <br><br>
       * Address: <br>
-      <input type='text' name='street' value="Street" required><br>
-      <input type='text' name='apartment' value="Apartment" required><br>
-      <input type='text' name='city' value="City" required>
+      <input type='text' name='street' placeholder="Street" required><br>
+      <input type='text' name='apartment' placeholder="Apartment" required><br>
+      <input type='text' name='city' placeholder="City" required>
       <select name='state'>
         <option value="Alabama">Alabama</option>
         <option value="Alaska">Alaska</option>
@@ -88,7 +88,7 @@
         <option value="Wisconsin">Wisconsin</option>
         <option value="Wyoming">Wyoming</option>
       </select> <br>
-      <input type='number' name='zip' value="12345" required><br>
+      <input type='number' name='zip' placeholder="12345" required><br>
 
       <br>
       <h6>* are required</h6>
