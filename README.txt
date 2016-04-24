@@ -7,3 +7,5 @@ March 5, 2016: Bare Bones HTML and CSS, no databases. Finalform is combine of mo
 April 2, 2016: continuation of HTML
 
 April 16, 2016: php conversion begin
+
+April 23, 2016: php continued - attempts to work database filling

@@ -11,6 +11,7 @@ create table ContactInfo(
   homeNum INTEGER NOT NULL CHECK(length(homeNum) <= 10),
   email TEXT NOT NULL UNIQUE,
   street TEXT NOT NULL,
+  apartment TEXT NOT NULL,
   city TEXT NOT NULL,
   state TEXT NOT NULL CHECK(length(state) <= 2),
   zip INTEGER NOT NULL CHECK(zip < 100000)
