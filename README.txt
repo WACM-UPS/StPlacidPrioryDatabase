@@ -9,3 +9,5 @@ April 2, 2016: continuation of HTML
 April 16, 2016: php conversion begin
 
 April 23, 2016: php continued - attempts to work database filling
+
+April 30, 2016: error exception wrangling - non-functional attempt
