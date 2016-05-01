@@ -4,8 +4,8 @@
 PRAGMA foreign_keys = ON;
 
 create table ContactInfo(
-  personID INTEGER PRIMARY KEY,
-  fName TEXT NOT NULL,
+  -- personID INTEGER PRIMARY KEY,
+  fName TEXT PRIMARY KEY,
   lName TEXT NOT NULL,
   cellNum INTEGER NOT NULL CHECK(length(cellNum) <= 10),
   homeNum INTEGER NOT NULL CHECK(length(homeNum) <= 10),

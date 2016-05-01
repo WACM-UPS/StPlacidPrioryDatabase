@@ -23,19 +23,19 @@
       <input type='text' name='lname' placeholder="Last Name" required>
       <br><br>
       * Daytime Phone Number or Cellphone Number:
-      <input type='tel' name='cellNum' placeholder="e.g. (303) 867 - 5309" required>
+      <input type='number' name='cellNum' placeholder="e.g. (303) 867 - 5309" required>
       <br><br>
       Home Phone Number:
-      <input type='tel' name='homeNum' placeholder="e.g. (303) 867 - 5309">
+      <input type='number' name='homeNum' placeholder="e.g. (303) 867 - 5309">
       <br><br>
       * Email:
-      <input type='email' name='email' placeholder="e.g. myname@gmail.com" required>
+      <input type='text' name='email' placeholder="e.g. myname@gmail.com" required>
       <br><br>
       * Address: <br>
       <input type='text' name='street' placeholder="Street" required><br>
       <input type='text' name='apartment' placeholder="Apartment"><br>
       <input type='text' name='city' placeholder="City" required>
-      <select name='state'>
+      <select type='text' name='state'>
         <option value="Alabama">Alabama</option>
         <option value="Alaska">Alaska</option>
         <option value="Arizona">Arizona</option>
